@@ -362,11 +362,10 @@ def department_pie():
         textfont=dict(size=11, family="DM Sans"),
         hovertemplate="<b>%{label}</b><br>%{value}% of OpEx<extra></extra>"
     ))
-    fig.update_layout(
-        **chart_layout("OpEx Breakdown by Department"),
-        showlegend=True,
-        legend=dict(orientation="v", font=dict(size=10))
-    )
+    layout = chart_layout("OpEx Breakdown by Department")
+    layout["showlegend"] = True
+    layout["legend"] = dict(orientation="v", font=dict(size=10))
+    fig.update_layout(**layout)
     return fig
 
 def budget_vs_actual_chart():
